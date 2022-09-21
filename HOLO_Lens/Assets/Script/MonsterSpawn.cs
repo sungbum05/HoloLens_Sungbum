@@ -5,16 +5,16 @@ using UnityEngine;
 
 public class MonsterSpawn : MonoBehaviour
 {
+    public static List<GameObject> SpawnList = new List<GameObject>();
+
     private const int MaxSpawnCnt = 10;
 
-    private const float MaxSpawnTime = 4.5f;
-    private const float MinSpawnTime = 3.5f;
+    private const float MaxSpawnTime = 1.5f;
+    private const float MinSpawnTime = 0.5f;
 
-    private const float MaxSpawnDistance = 20.0f;
-    private const float MinSpawnDistance = 10.0f;
+    private const float MaxSpawnDistance = 10.0f;
 
-    [SerializeField] Queue<GameObject> MonsterList = new Queue<GameObject>();
-    [SerializeField] List<GameObject> SpawnList = new List<GameObject>();
+    private Queue<GameObject> MonsterList = new Queue<GameObject>();
 
     [SerializeField] List<GameObject> MonsterPrefabs;
 
@@ -59,9 +59,12 @@ public class MonsterSpawn : MonoBehaviour
             if (MonsterList.Count <= 0) // 몬스터가 리스트에서 없어졌을 때 다시 추가
                 BasicEnemySetting();
 
-            float PosX = Random.Range(MinSpawnDistance, MaxSpawnDistance);
+            float PosX = Random.Range(-MaxSpawnDistance, MaxSpawnDistance);
             float PosY = this.gameObject.transform.position.y;
-            float PosZ = Random.Range(MinSpawnDistance, MaxSpawnDistance);
+            float PosZ = Random.Range(-MaxSpawnDistance, MaxSpawnDistance);
+
+            PosX += PosX > 0 ? 15.0f : -15.0f;
+            PosZ += PosZ > 0 ? 15.0f : -15.0f;
 
             Vector3 SpawnPos = new Vector3(PosX, PosY, PosZ);
 

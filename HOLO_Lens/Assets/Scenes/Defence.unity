@@ -705,7 +705,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdde1c652a259fe4c9a6c80e93b7ba41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnList: []
   MonsterPrefabs:
   - {fileID: 1919012471076396, guid: 55776efecb0cd134ea5f418c2f97a705, type: 3}
   - {fileID: 1774625739149480, guid: 38efdaadbfe1d624bbee439cb02e7661, type: 3}
